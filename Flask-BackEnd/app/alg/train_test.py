@@ -18,13 +18,13 @@ from utils import gen_gikt_graph, build_adj_list
 
 os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 time_now = datetime.now().strftime('%Y_%m_%d#%H_%M_%S')
-output_path = 'output'
+output_path = 'output-100'
 output_file = open(output_path, 'w')
 # 训练时的超参数
 params = {
     'max_seq_len': max_seq_len,
     'min_seq_len': min_seq_len,
-    'epochs': 20,  # 每折训练的轮数
+    'epochs': 100,  # 每折训练的轮数
     'lr': 0.01,
     'lr_gamma': 0.95,
     'batch_size': 32,
@@ -204,6 +204,6 @@ for epoch in range(params['epochs']):
     y_label_aver[0][epoch], y_label_aver[1][epoch], y_label_aver[2][epoch] = test_loss_aver, test_acc_aver, test_auc_aver
 
 output_file.close()
-torch.save(model, f=f'model/result.pt')
-np.savetxt(f'chart_data/result_all.txt', y_label_all)
-np.savetxt(f'chart_data/result_aver.txt', y_label_aver)
+torch.save(model, f=f'model-100/result.pt')
+np.savetxt(f'chart_data-100/result_all.txt', y_label_all)
+np.savetxt(f'chart_data-100/result_aver.txt', y_label_aver)
