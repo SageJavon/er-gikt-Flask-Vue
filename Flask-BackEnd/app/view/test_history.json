@@ -1,0 +1,1516 @@
+{
+	"data": {
+		"exerciseRecordList": [
+			{
+				"recordId": 5096,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-17T20:51:02",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5095,
+				"exerciseId": 1144,
+				"questionText": "在类的定义中可以有两个同名函数，这种现象称为函数",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 486,
+						"knowledge": "方法"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-17T20:47:59",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5094,
+				"exerciseId": 1143,
+				"questionText": "设有数组的定义int[] a = new int[3]，则下面对数组元素的引用错误的是",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 407,
+						"knowledge": "数组访问"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-17T20:47:50",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5093,
+				"exerciseId": 1143,
+				"questionText": "设有数组的定义int[] a = new int[3]，则下面对数组元素的引用错误的是",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 407,
+						"knowledge": "数组访问"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-17T20:47:48",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5092,
+				"exerciseId": 1142,
+				"questionText": "设int a=-2，则表达式a>>>3的值为",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-17T20:47:37",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5091,
+				"exerciseId": 1142,
+				"questionText": "设int a=-2，则表达式a>>>3的值为",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-17T20:47:36",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5090,
+				"exerciseId": 1142,
+				"questionText": "设int a=-2，则表达式a>>>3的值为",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-17T20:47:35",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5089,
+				"exerciseId": 1142,
+				"questionText": "设int a=-2，则表达式a>>>3的值为",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-17T20:47:34",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5088,
+				"exerciseId": 1142,
+				"questionText": "设int a=-2，则表达式a>>>3的值为",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-17T20:47:32",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5087,
+				"exerciseId": 1142,
+				"questionText": "设int a=-2，则表达式a>>>3的值为",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-17T20:47:31",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5086,
+				"exerciseId": 1142,
+				"questionText": "设int a=-2，则表达式a>>>3的值为",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-17T20:47:30",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5085,
+				"exerciseId": 1142,
+				"questionText": "设int a=-2，则表达式a>>>3的值为",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-17T20:47:26",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5084,
+				"exerciseId": 1141,
+				"questionText": "使用Java语言编写的源程序保存时的文件扩展名是",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 401,
+						"knowledge": "文件扩展名"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-17T20:47:11",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5083,
+				"exerciseId": 1144,
+				"questionText": "在类的定义中可以有两个同名函数，这种现象称为函数",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 486,
+						"knowledge": "方法"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-17T20:26:31",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5082,
+				"exerciseId": 1144,
+				"questionText": "在类的定义中可以有两个同名函数，这种现象称为函数",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 486,
+						"knowledge": "方法"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-17T20:26:31",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5081,
+				"exerciseId": 1144,
+				"questionText": "在类的定义中可以有两个同名函数，这种现象称为函数",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 486,
+						"knowledge": "方法"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-17T20:26:30",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5080,
+				"exerciseId": 1144,
+				"questionText": "在类的定义中可以有两个同名函数，这种现象称为函数",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 486,
+						"knowledge": "方法"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-17T20:26:29",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5079,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-17T20:23:15",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5078,
+				"exerciseId": 1229,
+				"questionText": "设 String s1 =”Topwalk”;String s2 =”Company”; 以 下 方 法 不可 以 得 到 字 符 串“TopwalkCompany” 有：",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 413,
+						"knowledge": "字符串"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-17T18:47:31",
+				"difficulty": 1,
+				"type": 1
+			},
+			{
+				"recordId": 5077,
+				"exerciseId": 1229,
+				"questionText": "设 String s1 =”Topwalk”;String s2 =”Company”; 以 下 方 法 不可 以 得 到 字 符 串“TopwalkCompany” 有：",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 413,
+						"knowledge": "字符串"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-17T18:47:31",
+				"difficulty": 1,
+				"type": 1
+			},
+			{
+				"recordId": 5076,
+				"exerciseId": 1229,
+				"questionText": "设 String s1 =”Topwalk”;String s2 =”Company”; 以 下 方 法 不可 以 得 到 字 符 串“TopwalkCompany” 有：",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 413,
+						"knowledge": "字符串"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-17T18:47:30",
+				"difficulty": 1,
+				"type": 1
+			},
+			{
+				"recordId": 5075,
+				"exerciseId": 1229,
+				"questionText": "设 String s1 =”Topwalk”;String s2 =”Company”; 以 下 方 法 不可 以 得 到 字 符 串“TopwalkCompany” 有：",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 413,
+						"knowledge": "字符串"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-17T18:47:30",
+				"difficulty": 1,
+				"type": 1
+			},
+			{
+				"recordId": 5074,
+				"exerciseId": 1229,
+				"questionText": "设 String s1 =”Topwalk”;String s2 =”Company”; 以 下 方 法 不可 以 得 到 字 符 串“TopwalkCompany” 有：",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 413,
+						"knowledge": "字符串"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-17T18:47:29",
+				"difficulty": 1,
+				"type": 1
+			},
+			{
+				"recordId": 5073,
+				"exerciseId": 1228,
+				"questionText": "下列关于 Thread 类提供的线程控制的方法中，错误的一项是",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 476,
+						"knowledge": "Thread"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-17T18:47:26",
+				"difficulty": 1,
+				"type": 1
+			},
+			{
+				"recordId": 5072,
+				"exerciseId": 1228,
+				"questionText": "下列关于 Thread 类提供的线程控制的方法中，错误的一项是",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 476,
+						"knowledge": "Thread"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-17T18:47:25",
+				"difficulty": 1,
+				"type": 1
+			},
+			{
+				"recordId": 5071,
+				"exerciseId": 1228,
+				"questionText": "下列关于 Thread 类提供的线程控制的方法中，错误的一项是",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 476,
+						"knowledge": "Thread"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-17T18:47:23",
+				"difficulty": 1,
+				"type": 1
+			},
+			{
+				"recordId": 5070,
+				"exerciseId": 1184,
+				"questionText": "为AB类的一个无形式参数无返回值的方法method书写方法头，使得使用类名AB作为前缀就可以调用它，该方法头的形式为",
+				"knowledgeConcept": [],
+				"score": 1,
+				"submitTime": "2024-07-14T14:59:48",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5069,
+				"exerciseId": 1184,
+				"questionText": "为AB类的一个无形式参数无返回值的方法method书写方法头，使得使用类名AB作为前缀就可以调用它，该方法头的形式为",
+				"knowledgeConcept": [],
+				"score": 0,
+				"submitTime": "2024-07-14T14:59:47",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5068,
+				"exerciseId": 1184,
+				"questionText": "为AB类的一个无形式参数无返回值的方法method书写方法头，使得使用类名AB作为前缀就可以调用它，该方法头的形式为",
+				"knowledgeConcept": [],
+				"score": 0,
+				"submitTime": "2024-07-14T14:59:47",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5067,
+				"exerciseId": 1183,
+				"questionText": "下面的代码段执行之后count的值是什么\n```java\nint count = 1;\nfor (int i = 1; i <= 5; i++) {\n    count += i;\n}\nSystem.out.println(count);\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 462,
+						"knowledge": "循环语句"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-14T14:59:44",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5066,
+				"exerciseId": 1183,
+				"questionText": "下面的代码段执行之后count的值是什么\n```java\nint count = 1;\nfor (int i = 1; i <= 5; i++) {\n    count += i;\n}\nSystem.out.println(count);\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 462,
+						"knowledge": "循环语句"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-14T14:59:44",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5065,
+				"exerciseId": 1183,
+				"questionText": "下面的代码段执行之后count的值是什么\n```java\nint count = 1;\nfor (int i = 1; i <= 5; i++) {\n    count += i;\n}\nSystem.out.println(count);\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 462,
+						"knowledge": "循环语句"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-14T14:59:43",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5064,
+				"exerciseId": 1183,
+				"questionText": "下面的代码段执行之后count的值是什么\n```java\nint count = 1;\nfor (int i = 1; i <= 5; i++) {\n    count += i;\n}\nSystem.out.println(count);\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 462,
+						"knowledge": "循环语句"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-14T14:59:43",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5063,
+				"exerciseId": 1182,
+				"questionText": "设 x = 1 , y = 2 , z = 3，则表达式 y＋＝z－－/＋＋x 的值是：",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-14T14:59:40",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5062,
+				"exerciseId": 1182,
+				"questionText": "设 x = 1 , y = 2 , z = 3，则表达式 y＋＝z－－/＋＋x 的值是：",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-14T14:59:39",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5061,
+				"exerciseId": 1182,
+				"questionText": "设 x = 1 , y = 2 , z = 3，则表达式 y＋＝z－－/＋＋x 的值是：",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-14T14:59:38",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5060,
+				"exerciseId": 1182,
+				"questionText": "设 x = 1 , y = 2 , z = 3，则表达式 y＋＝z－－/＋＋x 的值是：",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-14T14:59:37",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5059,
+				"exerciseId": 1181,
+				"questionText": "如下哪个是Java中的标识符",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 488,
+						"knowledge": "标识符"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-14T14:59:34",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5058,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T14:58:25",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5057,
+				"exerciseId": 119,
+				"questionText": "# 【深基2.例6】字母转换\n\n## 题目描述\n\n输入一个小写字母，输出其对应的大写字母。例如输入 q[回车] 时，会输出 Q。\n\n## 输入格式\n\n## 输出格式\n\n## 样例 #1\n\n### 样例输入 #1\n\n```\nq\n```\n\n### 样例输出 #1\n\n```\nQ\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 528,
+						"knowledge": "字符转换"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T14:04:32",
+				"difficulty": 1,
+				"type": 0
+			},
+			{
+				"recordId": 5056,
+				"exerciseId": 120,
+				"questionText": "# 【深基2.例7】数字反转\n\n## 题目描述\n\n输入一个不小于 $100$ 且小于 $1000$，同时包括小数点后一位的一个浮点数，例如 $123.4$ ，要求把这个数字翻转过来，变成 $4.321$ 并输出。\n\n## 输入格式\n\n一行一个浮点数\n\n## 输出格式\n\n一行一个浮点数\n\n## 样例 #1\n\n### 样例输入 #1\n\n```\n123.4\n```\n\n### 样例输出 #1\n\n```\n4.321\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 529,
+						"knowledge": "浮点数"
+					},
+					{
+						"knowledgeId": 530,
+						"knowledge": "数字反转"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T14:03:29",
+				"difficulty": 1,
+				"type": 0
+			},
+			{
+				"recordId": 5055,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T14:02:33",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5054,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T14:02:15",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5053,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T14:01:21",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5052,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T14:01:18",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5051,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T14:01:04",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5050,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T14:00:52",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5049,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T14:00:36",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5048,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:59:44",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5047,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:58:03",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5046,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:57:50",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5045,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:57:29",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5044,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:57:18",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5043,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:57:09",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5042,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:56:26",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5041,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:52:34",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5040,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:52:18",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5039,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:46:34",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5038,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:46:01",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5037,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:45:55",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5036,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:45:25",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5035,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:44:57",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5034,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:37:56",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5033,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:36:47",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5032,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:36:17",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5031,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:34:00",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5030,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:29:06",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5029,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:28:57",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5028,
+				"exerciseId": 112,
+				"questionText": "搭建JDK和Eclipse环境，完成一个程序编写、运行和调试。\n```java\npublic class HelloWorld {\npublic static void main(String[] args) {\nSystem.out.println(\"Hello World!\");\nint a = 1;\na=a+1;\na=a+2;\nSystem.out.println(\"a is \" + a);\na=a+3;  //断点行\na=a+4;\nSystem.out.println(\"a is \" + a);\n}\n}\n```\n(1). 编写以上程序，并运行。\n(2). 将断点设置在第八行，查看变量a的值，提交此刻的屏幕截图。",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 524,
+						"knowledge": "程序编写"
+					}
+				],
+				"score": 100,
+				"submitTime": "2024-07-14T13:23:22",
+				"difficulty": 0,
+				"type": 0
+			},
+			{
+				"recordId": 5027,
+				"exerciseId": 1140,
+				"questionText": "执行如下代码片段后，num的值为：\n\n```java\nint num = 5;\n\nnum = (num % 2) == 0 ? num – 1 : num + 1;\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-14T11:17:11",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5026,
+				"exerciseId": 1149,
+				"questionText": "为AB类的一个无形式参数无返回值的方法method书写方法头，使得使用类名AB作为前缀就可以调用它，该方法头的形式为",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 495,
+						"knowledge": "静态方法"
+					},
+					{
+						"knowledgeId": 511,
+						"knowledge": "方法头"
+					},
+					{
+						"knowledgeId": 511,
+						"knowledge": "方法头"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T17:13:36",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5025,
+				"exerciseId": 1148,
+				"questionText": "下面哪一个是Java中不合法的标识符",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 488,
+						"knowledge": "标识符"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T17:13:34",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5024,
+				"exerciseId": 1148,
+				"questionText": "下面哪一个是Java中不合法的标识符",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 488,
+						"knowledge": "标识符"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T17:13:32",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5023,
+				"exerciseId": 1147,
+				"questionText": "类与对象的关系是",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 449,
+						"knowledge": "类与对象"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T17:13:30",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5022,
+				"exerciseId": 1147,
+				"questionText": "类与对象的关系是",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 449,
+						"knowledge": "类与对象"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T17:13:28",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5021,
+				"exerciseId": 1140,
+				"questionText": "执行如下代码片段后，num的值为：\n\n```java\nint num = 5;\n\nnum = (num % 2) == 0 ? num – 1 : num + 1;\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-13T16:54:01",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5020,
+				"exerciseId": 1140,
+				"questionText": "执行如下代码片段后，num的值为：\n\n```java\nint num = 5;\n\nnum = (num % 2) == 0 ? num – 1 : num + 1;\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T16:53:46",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5019,
+				"exerciseId": 1140,
+				"questionText": "执行如下代码片段后，num的值为：\n\n```java\nint num = 5;\n\nnum = (num % 2) == 0 ? num – 1 : num + 1;\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T16:53:44",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5018,
+				"exerciseId": 1140,
+				"questionText": "执行如下代码片段后，num的值为：\n\n```java\nint num = 5;\n\nnum = (num % 2) == 0 ? num – 1 : num + 1;\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T16:53:43",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5017,
+				"exerciseId": 1170,
+				"questionText": "给出下面代码，关于该程序以下哪个说法是正确的？\n```java\npublic class Person{\n    static int arr[] = new int[5];\n    public static void main(String a[]){\n        System.out.println(arr[0]);\n    }\n}\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 449,
+						"knowledge": "类与对象"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T16:50:18",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5016,
+				"exerciseId": 1170,
+				"questionText": "给出下面代码，关于该程序以下哪个说法是正确的？\n```java\npublic class Person{\n    static int arr[] = new int[5];\n    public static void main(String a[]){\n        System.out.println(arr[0]);\n    }\n}\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 449,
+						"knowledge": "类与对象"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-13T16:50:17",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5015,
+				"exerciseId": 1170,
+				"questionText": "给出下面代码，关于该程序以下哪个说法是正确的？\n```java\npublic class Person{\n    static int arr[] = new int[5];\n    public static void main(String a[]){\n        System.out.println(arr[0]);\n    }\n}\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 449,
+						"knowledge": "类与对象"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T16:50:16",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5014,
+				"exerciseId": 1170,
+				"questionText": "给出下面代码，关于该程序以下哪个说法是正确的？\n```java\npublic class Person{\n    static int arr[] = new int[5];\n    public static void main(String a[]){\n        System.out.println(arr[0]);\n    }\n}\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 449,
+						"knowledge": "类与对象"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T16:50:16",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5013,
+				"exerciseId": 1149,
+				"questionText": "为AB类的一个无形式参数无返回值的方法method书写方法头，使得使用类名AB作为前缀就可以调用它，该方法头的形式为",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 495,
+						"knowledge": "静态方法"
+					},
+					{
+						"knowledgeId": 511,
+						"knowledge": "方法头"
+					},
+					{
+						"knowledgeId": 511,
+						"knowledge": "方法头"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T16:48:19",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5012,
+				"exerciseId": 1140,
+				"questionText": "执行如下代码片段后，num的值为：\n\n```java\nint num = 5;\n\nnum = (num % 2) == 0 ? num – 1 : num + 1;\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-13T16:48:05",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5011,
+				"exerciseId": 1140,
+				"questionText": "执行如下代码片段后，num的值为：\n\n```java\nint num = 5;\n\nnum = (num % 2) == 0 ? num – 1 : num + 1;\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T16:48:05",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5010,
+				"exerciseId": 1140,
+				"questionText": "执行如下代码片段后，num的值为：\n\n```java\nint num = 5;\n\nnum = (num % 2) == 0 ? num – 1 : num + 1;\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T16:48:04",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5009,
+				"exerciseId": 1140,
+				"questionText": "执行如下代码片段后，num的值为：\n\n```java\nint num = 5;\n\nnum = (num % 2) == 0 ? num – 1 : num + 1;\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 440,
+						"knowledge": "运算符"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T16:48:02",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5008,
+				"exerciseId": 1172,
+				"questionText": "下列类定义中哪些是合法的抽象类的定义？",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 517,
+						"knowledge": "抽象类和抽象方法"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-13T15:51:01",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5007,
+				"exerciseId": 1172,
+				"questionText": "下列类定义中哪些是合法的抽象类的定义？",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 517,
+						"knowledge": "抽象类和抽象方法"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T15:51:00",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5006,
+				"exerciseId": 1172,
+				"questionText": "下列类定义中哪些是合法的抽象类的定义？",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 517,
+						"knowledge": "抽象类和抽象方法"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T15:50:57",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5005,
+				"exerciseId": 1162,
+				"questionText": "以下代码段执行后的输出结果为\n```java\nint x = -3;\nint y = -10;\nSystem.out.println(y % x);\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 428,
+						"knowledge": "取模运算"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-13T15:43:27",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5004,
+				"exerciseId": 1162,
+				"questionText": "以下代码段执行后的输出结果为\n```java\nint x = -3;\nint y = -10;\nSystem.out.println(y % x);\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 428,
+						"knowledge": "取模运算"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T15:43:26",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5003,
+				"exerciseId": 1162,
+				"questionText": "以下代码段执行后的输出结果为\n```java\nint x = -3;\nint y = -10;\nSystem.out.println(y % x);\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 428,
+						"knowledge": "取模运算"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T15:43:25",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5002,
+				"exerciseId": 1162,
+				"questionText": "以下代码段执行后的输出结果为\n```java\nint x = -3;\nint y = -10;\nSystem.out.println(y % x);\n```",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 428,
+						"knowledge": "取模运算"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T15:43:24",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5001,
+				"exerciseId": 1161,
+				"questionText": "Java application中的主类需包含main方法，以下哪项是main方法的正确形参？",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 410,
+						"knowledge": "入口方法"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-13T15:43:21",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 5000,
+				"exerciseId": 1161,
+				"questionText": "Java application中的主类需包含main方法，以下哪项是main方法的正确形参？",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 410,
+						"knowledge": "入口方法"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T15:43:20",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 4999,
+				"exerciseId": 1161,
+				"questionText": "Java application中的主类需包含main方法，以下哪项是main方法的正确形参？",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 410,
+						"knowledge": "入口方法"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T15:43:17",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 4998,
+				"exerciseId": 1161,
+				"questionText": "Java application中的主类需包含main方法，以下哪项是main方法的正确形参？",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 410,
+						"knowledge": "入口方法"
+					}
+				],
+				"score": 0,
+				"submitTime": "2024-07-13T15:43:16",
+				"difficulty": 0,
+				"type": 1
+			},
+			{
+				"recordId": 4997,
+				"exerciseId": 1153,
+				"questionText": "对于一个Java源文件，import, class定义以及package正确的顺序是",
+				"knowledgeConcept": [
+					{
+						"knowledgeId": 452,
+						"knowledge": "java源文件"
+					}
+				],
+				"score": 1,
+				"submitTime": "2024-07-13T15:39:31",
+				"difficulty": 0,
+				"type": 1
+			}
+		],
+		"total": 5096,
+		"pages": 51
+	},
+	"code": "SUCCESS",
+	"message": "成功",
+	"resolve": null
+}
