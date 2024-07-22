@@ -8,15 +8,20 @@ import traceback
 from flask import Blueprint, request
 from icecream import ic
 from scipy import sparse
+import json
 
 from ..alg.params import DEVICE
 from ..entity import Answer, User, Question, Skill
 
 kt_bp = Blueprint('kt', __name__, url_prefix='/kt')
 model = torch.load(f='E:/AJava/flask-knowledgeTracing/ER-GIKT-Flask-Vue/Flask-BackEnd/app/alg/model/result.pt')
-qq_table = sparse.load_npz('E:/AJava/flask-knowledgeTracing/ER-GIKT-Flask-Vue/Flask-BackEnd/app/alg/data/qq_table.npz').toarray()
-qs_table = sparse.load_npz('E:/AJava/flask-knowledgeTracing/ER-GIKT-Flask-Vue/Flask-BackEnd/app/alg/data/qs_table.npz').toarray()
-ss_table = sparse.load_npz('E:/AJava/flask-knowledgeTracing/ER-GIKT-Flask-Vue/Flask-BackEnd/app/alg/data/ss_table.npz').toarray()
+qq_table = sparse.load_npz(
+    'E:/AJava/flask-knowledgeTracing/ER-GIKT-Flask-Vue/Flask-BackEnd/app/alg/data/qq_table.npz').toarray()
+qs_table = sparse.load_npz(
+    'E:/AJava/flask-knowledgeTracing/ER-GIKT-Flask-Vue/Flask-BackEnd/app/alg/data/qs_table.npz').toarray()
+ss_table = sparse.load_npz(
+    'E:/AJava/flask-knowledgeTracing/ER-GIKT-Flask-Vue/Flask-BackEnd/app/alg/data/ss_table.npz').toarray()
+
 
 # 返回历史答题记录
 @kt_bp.route('/history', methods=['GET'])
@@ -52,6 +57,7 @@ def history_questions():
         ],
         'num': len(answers)
     }
+
 
 # 返回预测结果
 @kt_bp.route('/predict', methods=['GET'])
@@ -105,17 +111,31 @@ def predict():
         'num': len(q_list)
     }
 
+
+def convert2Index(q_id):
+    tmp_id = 0
+    if q_id < 1140:
+        tmp_id = q_id - 112
+    if q_id >= 1140:
+        tmp_id = q_id - 1038
+    return tmp_id
+
+
 # 返回推荐习题和预测结果
 @kt_bp.route('/recommend', methods=['GET'])
 def recommend():
     num = int(request.args.get('num'))  # 推荐数量
     user_id = int(request.args.get('userId'))
-    history_answers = Answer.query.filter_by(user_id=user_id).all()  # 该同学所有相关的问答
-    q_list = [a.q_id for a in history_answers]  # 所有回答过的问题id
+    with open('E:/AJava/flask-knowledgeTracing/gikt-model/er-gikt-Flask-Vue/Flask-BackEnd/app/view/test_history.json', 'r', encoding='utf-8') as f:
+        history_answers = json.load(f)
+        history_answers = history_answers['data']['exerciseRecordList']
+    print('历史记录\n')
+    print(history_answers)
+    q_list = [a['exerciseId'] for a in history_answers]  # 所有回答过的问题id
     ic(q_list)
     q_set_related = set()  # 所有相关问题的id集合
     for q_id in q_list:
-        q_set_related.update(np.where(qq_table[q_id] > 0)[0].tolist())
+        q_set_related.update(np.where(qq_table[convert2Index(q_id)] > 0)[0].tolist())
     q_list_related = list(q_set_related)  # 所有相关问题的id数组
     if num > len(q_list_related):  # 相关题目比需要推荐的少，允许[重复]选
         q_list_related *= (num / len(q_list_related) + 1)
@@ -130,14 +150,14 @@ def recommend():
     # 计算推荐习题中技能的分布情况
     s_set = set()  # 所有相关技能id集合
     for q_id in q_list_recommend:
-        s_set.update(np.where(qs_table[q_id] > 0)[0].tolist())
+        s_set.update(np.where(qs_table[convert2Index(q_id)] > 0)[0].tolist())
     s_list = list(s_set)  # 相关技能的id数组
     ic(s_list)
     s_names = [s.name for s in Skill.query.filter(Skill.id.in_(s_list)).all()]  # 技能名称数组
     ic(s_names)
     s_q_num = [0 for _ in range(len(s_list))]  # 每个技能涉及的问题数量
     for q_id in q_list_recommend:
-        s_list1 = np.where(qs_table[q_id] > 0)[0].tolist()
+        s_list1 = np.where(qs_table[convert2Index(q_id)] > 0)[0].tolist()
         for s_id in s_list1:
             s_q_num[s_list.index(s_id)] += 1
     ic(s_q_num)
@@ -152,6 +172,7 @@ def recommend():
             } for name, value in zip(s_names, s_values)]
         }
     }
+
 
 @kt_bp.route('/skillGraph', methods=['GET'])
 def skill_graph():

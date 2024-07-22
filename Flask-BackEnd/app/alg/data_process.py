@@ -116,7 +116,8 @@ if __name__ == '__main__':
                 for s in skill_add:
                     qs_table[question2idx[row[2]], skill2idx[s]] = 1
         ic('问题-技能矩阵构建完成')
-
+        
+        
         # 构建问题-问题表, 技能-技能表
         qq_table = np.matmul(qs_table, qs_table.T)  # 问题-问题矩阵 [num_q, num_q]
         ss_table = np.matmul(qs_table.T, qs_table)  # 技能-技能矩阵 [num_s, num_s]
