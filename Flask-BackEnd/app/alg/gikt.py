@@ -48,7 +48,7 @@ class GIKT(Module):
 
     def forward(self, question, response, mask):
         # question: [batch_size, seq_len]
-        # response: [batch_size, 1]
+        # response: [batch_size, seq_len]
         # mask: [batch_size, seq_len] 和question一样的形状, 表示在question中哪些索引是真正的数据(1), 哪些是补零的数据(0)
         # 每一个在forward中new出来的tensor都要.to(DEVICE)
         batch_size, seq_len = question.shape # batch_size表示多少个用户, seq_len表示每个用户最多回答了多少个问题
