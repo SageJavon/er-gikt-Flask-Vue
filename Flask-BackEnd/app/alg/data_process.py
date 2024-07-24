@@ -16,7 +16,7 @@ max_seq_len = 200  # 最长用户答题序列
 # 本地不存在文件：计算、保存
 if __name__ == '__main__':
     data = pd.read_csv(
-        filepath_or_buffer='data/assist09_origin.csv', encoding="ISO-8859-1")
+        filepath_or_buffer='data/all_records.csv', encoding="utf-8")
     # 原始数据
     ic(data.shape)
 
@@ -24,18 +24,18 @@ if __name__ == '__main__':
     ic('按用户id排序完成')
 
     # 清洗一些无用数据
-    data = data.drop(data[data['skill_id'] == 'NA'].index)  # 删除技能为NA的行
-    data = data.dropna(subset=['skill_id'])  # 清除技能为NAN的行
-    data = data.drop(data[data['original'] == 0].index)  # 删除origin类型为0
+    # data = data.drop(data[data['skill_id'] == 'NA'].index)  # 删除技能为NA的行
+    # data = data.dropna(subset=['skill_id'])  # 清除技能为NAN的行
+    # data = data.drop(data[data['original'] == 0].index)  # 删除origin类型为0
 
     # 统计每个学生回答的问题数量, 并创建布尔索引，标记回答问题不超过5个的学生
-    is_valid_user = data.groupby('user_id').size() >= min_seq_len
+    # is_valid_user = data.groupby('user_id').size() >= min_seq_len
     # 使用布尔索引过滤数据，删除回答问题不超过5个的学生的数据
-    data = data[data['user_id'].isin(is_valid_user[is_valid_user].index)]
+    # data = data[data['user_id'].isin(is_valid_user[is_valid_user].index)]
     ic('数据行清洗完成')
 
-    data = data.loc[:, ['order_id', 'user_id', 'problem_id', 'correct', 'skill_id', 'skill_name',
-                        'ms_first_response', 'answer_type', 'attempt_count']]  # 只保留有用的列
+    # data = data.loc[:, ['order_id', 'user_id', 'problem_id', 'correct', 'skill_id', 'skill_name',
+    #                     'ms_first_response', 'answer_type', 'attempt_count']]  # 只保留有用的列
     ic('数据列清洗完成')
     ic(data.shape)
 
@@ -50,17 +50,23 @@ if __name__ == '__main__':
     for row in data.itertuples(index=False):
         users.add(row[1])
         questions.add(row[2])
+
         if isinstance(row[4], (int, float)):
             skills.add(int(row[4]))
         else:
             skill_add = set(int(s) for s in row[4].split('_'))
             # 按'_'分隔, 并转化为整数, 再加入skills中
             skills = skills.union(skill_add)
+           
 
-    data.to_csv('data/assist09_processed.csv', sep=',', index=False)
+    # data.to_csv('data/all_records_processed.csv',
+    #             sep=',', index=False, encoding='utf-8')
 
     num_q = len(questions)
+    print(num_q)
     num_s = len(skills)
+    print(sorted(skills))
+    print(num_s)
     num_user = len(users)
 
     # 本地的字典
@@ -116,8 +122,7 @@ if __name__ == '__main__':
                 for s in skill_add:
                     qs_table[question2idx[row[2]], skill2idx[s]] = 1
         ic('问题-技能矩阵构建完成')
-        
-        
+
         # 构建问题-问题表, 技能-技能表
         qq_table = np.matmul(qs_table, qs_table.T)  # 问题-问题矩阵 [num_q, num_q]
         ss_table = np.matmul(qs_table.T, qs_table)  # 技能-技能矩阵 [num_s, num_s]
@@ -162,10 +167,14 @@ if __name__ == '__main__':
 
     # 构建问题的属性(attribute)特征向量, 公式: q = [平均反应时间, 平均回答次数, 问题类型(5, one-hot), 平均正确率]
     if not os.path.exists('data/q_feature.npy'):
-        q_type_list = data['answer_type'].unique()  # 所有的问题类型（只有五种）
+        # q_type_list = data['answer_type'].unique()  # 所有的问题类型（只有五种）
+        q_type_list = data['answer_type'].unique()
+        print(q_type_list)
         num_types = len(q_type_list)  # 问题类型数量
         q_type_dict = dict(zip(q_type_list, range(num_types)))
+        print(num_q)
         q_feature = np.zeros([num_q, num_types + 3])  # 属性特征
+        print(q_feature.shape)
 
         for idx in idx2question:  # 每个问题
             if idx == 0:  # 第一个是空白问题
@@ -177,6 +186,7 @@ if __name__ == '__main__':
             _type = np.zeros([num_types, ], float)
             _type[q_type_dict[q_temp.iloc[0]['answer_type']]] = 1
             _accuracy = np.atleast_1d(q_temp['correct'].mean())
+            # print(idx)
             q_feature[idx] = np.concatenate(
                 [_mean_time, _mean_count, _type, _accuracy])
 
