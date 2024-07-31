@@ -39,7 +39,7 @@ params = {
     'rank_k': 10,
     'k_fold': 5  # 几折交叉验证
 }
-
+DEVICE = torch.device("cuda:0" if torch.cuda.is_available()==False else "cpu")
 # 打印并写超参数
 output_file.write(str(params) + '\n')
 print(params)
@@ -54,6 +54,7 @@ q_neighbors, s_neighbors = gen_gikt_graph(
     q_neighbors_list, s_neighbors_list, params['size_q_neighbors'], params['size_s_neighbors'])
 q_neighbors = torch.tensor(q_neighbors, dtype=torch.int64, device=DEVICE)
 s_neighbors = torch.tensor(s_neighbors, dtype=torch.int64, device=DEVICE)
+
 
 # 初始化模型
 model = GIKT(
@@ -111,7 +112,7 @@ for epoch in range(params['epochs']):
             x, y_target, mask = data[:, :, 0].to(DEVICE), data[:, :, 1].to(
                 DEVICE), data[:, :, 2].to(torch.bool).to(DEVICE)
             # 从data取出来时，mask的类型是int而不是bool
-            y_hat = model(x, y_target, mask)
+            y_hat = model(x, y_target, mask,DEVICE)
             y_hat = torch.masked_select(y_hat, mask)
             y_pred = torch.ge(y_hat, torch.tensor(0.5))
             y_target = torch.masked_select(y_target, mask)
@@ -141,7 +142,7 @@ for epoch in range(params['epochs']):
         for data in test_loader:
             x, y_target, mask = data[:, :, 0].to(DEVICE), data[:, :, 1].to(
                 DEVICE), data[:, :, 2].to(torch.bool).to(DEVICE)
-            y_hat = model(x, y_target, mask)
+            y_hat = model(x, y_target, mask,DEVICE)
             y_hat = torch.masked_select(y_hat, mask.to(torch.bool))
             y_pred = torch.ge(y_hat, torch.tensor(0.5))
             y_target = torch.masked_select(y_target, mask.to(torch.bool))
@@ -204,6 +205,6 @@ for epoch in range(params['epochs']):
     y_label_aver[0][epoch], y_label_aver[1][epoch], y_label_aver[2][epoch] = test_loss_aver, test_acc_aver, test_auc_aver
 
 output_file.close()
-torch.save(model, f=f'model-100/result.pt')
-np.savetxt(f'chart_data_100/result_all.txt', y_label_all)
-np.savetxt(f'chart_data_100/result_aver.txt', y_label_aver)
+torch.save(model, f=f'model-100/result_wyz.pt')
+np.savetxt(f'chart_data_100/result_all_wyz.txt', y_label_all)
+np.savetxt(f'chart_data_100/result_aver_wyz.txt', y_label_aver)

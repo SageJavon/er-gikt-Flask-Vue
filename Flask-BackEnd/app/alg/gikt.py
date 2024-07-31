@@ -46,7 +46,7 @@ class GIKT(Module):
         # 公式10中的W
         self.MLP_W = Linear(2 * emb_dim, 1)
 
-    def forward(self, question, response, mask):
+    def forward(self, question, response, mask, DEVICE):
         # question: [batch_size, seq_len]
         # response: [batch_size, seq_len]
         # mask: [batch_size, seq_len] 和question一样的形状, 表示在question中哪些索引是真正的数据(1), 哪些是补零的数据(0)
