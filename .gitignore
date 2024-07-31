@@ -11,3 +11,4 @@ Flask-BackEnd/app/alg/chart_img/*
 Flask-BackEnd/app/alg/logs/*
 Flask-BackEnd/app/alg/model/*
 Flask-BackEnd/app/alg/output/*
+.env
