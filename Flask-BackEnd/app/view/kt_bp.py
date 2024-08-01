@@ -29,12 +29,12 @@ kt_bp = Blueprint('kt', __name__, url_prefix='/kt')
 script_dir = os.path.dirname(__file__)
 print("script路径为",script_dir)
 # 使用绝对路径加载模型和数据文件
-model_path = os.path.join(script_dir, 'model-1/results.pth')
-qq_table_path = os.path.join(script_dir, 'data/qq_table.npz')
-qs_table_path = os.path.join(script_dir, 'data/qs_table.npz')
-ss_table_path = os.path.join(script_dir, 'data/ss_table.npz')
-question2idx_path = os.path.join(script_dir, 'data/question2idx.npy')
-idx2question_path = os.path.join(script_dir, 'data/idx2question.npy')
+# model_path = os.path.join(script_dir, 'model-1/results.pth')
+# qq_table_path = os.path.join(script_dir, 'data/qq_table.npz')
+# qs_table_path = os.path.join(script_dir, 'data/qs_table.npz')
+# ss_table_path = os.path.join(script_dir, 'data/ss_table.npz')
+# question2idx_path = os.path.join(script_dir, 'data/question2idx.npy')
+# idx2question_path = os.path.join(script_dir, 'data/idx2question.npy')
 
 model_path = 'alg/model-100/results.pth'
 qq_table_path = 'alg/data/qq_table.npz'
