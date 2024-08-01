@@ -115,22 +115,20 @@ def stu_state_upload(user_state):
     conn=None
     cursor=None
     try:
-        # 创建数据库连接
-        conn = pymysql.connect(
-            host='mysql.mysql',  # 连接主机, 默认127.0.0.1
-            user='root',  # 用户名
-            passwd='pYRGObpCdG',  # 密码
-            port=3306,  # 端口，默认为3306
-            database='sage_javon'
+        conn = mysql.connector.connect(
+            host="mysql.mysql",
+            user="root",
+            password='pYRGObpCdG',  # os.getenv('MYSQL_PASSWORD')
+            database="sage_javon",
+            port=3306
         )
-        # 生成游标对象 cursor
+
+        if conn.is_connected():
+            print('Connected to MySQL database')
+
+        # 创建游标对象，用于执行查询
         cursor = conn.cursor()
-        # 查询数据库版本
-        cursor.execute("select version()")  # 返回值是查询到的数据数量
-        # 通过 fetchall方法获得数据
-        data = cursor.fetchone()
-        print("Database Version:%s" % data)
-        # user_state = np.load('alg/chart_data_100/user_state.npy',allow_pickle=True).item()
+        # user_state = {70363:11}
         try:
             for k, v in user_state.items():
                 sql = "update student set knowledge_state='{}' where id='{}'".format(v, k)
