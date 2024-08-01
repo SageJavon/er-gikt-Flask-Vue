@@ -20,7 +20,7 @@ def fetch_exercise_records(student_id):
         conn = mysql.connector.connect(
             host="mysql.mysql",
             user="root",
-            password='pYRGObpCdG',   # os.getenv('MYSQL_PASSWORD')
+            password=os.getenv('MYSQL_PASSWORD'),   # os.getenv('MYSQL_PASSWORD')
             database="sage_javon",
             port=3306
         )
@@ -118,7 +118,7 @@ def stu_state_upload(user_state):
         conn = mysql.connector.connect(
             host="mysql.mysql",
             user="root",
-            password='pYRGObpCdG',  # os.getenv('MYSQL_PASSWORD')
+            password=os.getenv('MYSQL_PASSWORD'),  # os.getenv('MYSQL_PASSWORD')
             database="sage_javon",
             port=3306
         )
