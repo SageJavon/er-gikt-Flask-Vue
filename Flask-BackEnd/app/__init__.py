@@ -8,15 +8,21 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
 import sys
+from urllib import parse
+
+
+sys.path.append('..')
 
 sys.path.append(os.path.join(os.path.dirname(__file__), 'alg'))
 sys.path.append(os.path.join(os.path.dirname(__file__), 'view'))
 sys.path.append(
-    'E:/AJava/flask-knowledgeTracing/ER-GIKT-Flask-Vue/Flask-BackEnd')
+    'C:/Users/wuyz/Desktop/er-gikt-Flask-Vue-main/Flask-BackEnd')
 # 解决了算法模块无法引用的问题
 sys.path.append(
-    'D:/environments/python311/Lib/site-packages/flask/app.py')
+    'D:/LenovoSoftstore/Install/anaconda3/envs/python39/Lib/site-packages/flask/app.py')
 # 解决了数据库迁移找不到包的问题
+
+password = "Wyz789789@"
 
 # 主机名
 HOSTNAME = '127.0.0.1'
@@ -25,9 +31,9 @@ PORT = 3306
 # 用户名
 USERNAME = 'root'
 # 密码
-PASSWORD = '123456'
+PASSWORD = parse.quote_plus(password)
 # 数据库名称
-DATABASE = 'er_gikt'
+DATABASE = 'test'
 
 # 主文件配置
 
@@ -50,11 +56,17 @@ def create_app():
     migrate = Migrate(app, db)
 
     # 这时候才导入蓝图，可以避免循环引用
+    # from view.user_bp import user_bp
+    # from view.skill_bp import skill_bp
+    # from view.kt_bp import kt_bp
+    # from view.question_bp import question_bp
     from app.view.user_bp import user_bp
     from app.view.skill_bp import skill_bp
     from app.view.kt_bp import kt_bp
     from app.view.question_bp import question_bp
+    # from app.view.score import score_bp
 
+    # app.register_blueprint(score_bp)
     app.register_blueprint(user_bp)
     app.register_blueprint(skill_bp)
     app.register_blueprint(kt_bp)
@@ -74,4 +86,5 @@ def create_app():
 
 if __name__ == '__main__':
     app = create_app()
-    app.run()
+    # app.run()
+    app.run(host='127.0.0.1',port=1000,debug=True)

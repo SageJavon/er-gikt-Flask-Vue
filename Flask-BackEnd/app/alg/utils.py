@@ -6,7 +6,7 @@ from scipy import sparse
 
 def build_adj_list():
     # 返回每个问题的所有邻居, 每个技能的所有邻居
-    qs_table = sparse.load_npz('data/qs_table.npz').toarray() # get qs_table ==> tensor(num_q, num_s)
+    qs_table = sparse.load_npz('alg/data/qs_table.npz').toarray() # get qs_table ==> tensor(num_q, num_s)
     num_question = qs_table.shape[0]
     num_skill = qs_table.shape[1]
     q_neighbors_list = [[] for _ in range(num_question)] # 每个问题的邻居(技能)

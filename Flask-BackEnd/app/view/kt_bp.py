@@ -17,15 +17,17 @@ import os
 import sys
 from scipy import sparse
 import heapq
-from params import *
+# from params import *
 import time
-from gikt import GIKT
-from util import gen_gikt_graph, build_adj_list
-from ..test_kt_interface import fetch_exercise_records
+from ..alg.gikt import GIKT
+from ..alg.utils import gen_gikt_graph, build_adj_list
+# from gikt import GIKT
+# from util import gen_gikt_graph, build_adj_list
+from ..test_kt_interface import fetch_exercise_records,stu_state_upload
 kt_bp = Blueprint('kt', __name__, url_prefix='/kt')
 # 获取当前脚本的绝对路径
 script_dir = os.path.dirname(__file__)
-
+print("script路径为",script_dir)
 # 使用绝对路径加载模型和数据文件
 model_path = os.path.join(script_dir, 'model-1/results.pth')
 qq_table_path = os.path.join(script_dir, 'data/qq_table.npz')
@@ -34,8 +36,16 @@ ss_table_path = os.path.join(script_dir, 'data/ss_table.npz')
 question2idx_path = os.path.join(script_dir, 'data/question2idx.npy')
 idx2question_path = os.path.join(script_dir, 'data/idx2question.npy')
 
+model_path = 'alg/model-100/results.pth'
+qq_table_path = 'alg/data/qq_table.npz'
+qs_table_path = 'alg/data/qs_table.npz'
+ss_table_path = 'alg/data/ss_table.npz'
+question2idx_path = 'alg/data/question2idx.npy'
+idx2question_path = 'alg/data/idx2question.npy'
+
 qq_table = sparse.load_npz(qq_table_path).toarray()
-qs_table = sparse.load_npz(qs_table_path).toarray()
+# qs_table = sparse.load_npz(qs_table_path).toarray()
+qs_table = torch.tensor(sparse.load_npz(qs_table_path).toarray(), dtype=torch.int64, device='cpu')
 ss_table = sparse.load_npz(ss_table_path).toarray()
 question2idx = np.load(question2idx_path, allow_pickle=True).item()
 idx2question = np.load(idx2question_path, allow_pickle=True).item()
@@ -211,116 +221,116 @@ def predict():
         'num': len(q_list)
     }
 
-# 测试推荐
-@kt_bp.route('/recommend', methods=['GET'])
-def recommend_test():
-    num = 10  # 推荐数量
-    with open('test_history.json') as f:
-        json_data = json.load(f)
-    history_answers = json_data['data']['exerciseRecordList'] # 获取历史答题记录
-    q_list = [question2idx[a['exerciseId']] for a in history_answers] # 获取答题记录的index
-    ic(q_list)
-    # 获取相关的习题
-    q_set_related = set()  # 所有相关问题的id集合
-    for q_id in q_list:
-        q_set_related.update(np.where(qq_table[q_id] > 0)[0].tolist())
-    q_list_related = list(q_set_related)  # 所有相关问题的id数组
-    if num > len(q_list_related):  # 相关题目比需要推荐的少，允许[重复]选
-        q_list_related *= (num / len(q_list_related) + 1)
-    a_list = [1 if a['score'] > 0 else 0 for a in history_answers] # 获取答题answer记录
-    max_length = 200 # 需要改为传值？
-    question_tensor_list = []
-    answer_tensor_list = []
-    mask_tensor_list = []
-    time_step = len(q_list)
-    for q_related in q_list_related:
-        combined_q_list = q_list + [q_related] # 原始的答题记录加上最后一道用于预测的题目
-        combined_a_list = a_list + [0]
-        combined_m_list = [1 for i in range(len(combined_q_list))]
-        if len(combined_q_list) < max_length:  # 如果序列长度小于最大长度
-            combined_q_list += [0] * (max_length - len(combined_q_list))
-            combined_a_list += [0] * (max_length - len(combined_a_list))
-            combined_m_list += [0] * (max_length - len(combined_m_list))
-        elif len(combined_q_list) > max_length:
-            combined_q_list = combined_q_list[-max_length:]
-            combined_a_list = combined_a_list[-max_length:]
-            combined_m_list = combined_m_list[-max_length:]
-        question_tensor_list.append(combined_q_list)
-        answer_tensor_list.append(combined_a_list)
-        mask_tensor_list.append(combined_m_list)
-    question_tensor = torch.tensor(question_tensor_list, dtype=torch.int64)
-    answer_tensor = torch.tensor(answer_tensor_list, dtype=torch.int64)
-    mask_tensor = torch.tensor(mask_tensor_list, dtype=torch.int64)
-    # 模型预测
-    c_list = model(
-        question=question_tensor,  
-        response=answer_tensor,  
-        mask=mask_tensor  
-    ).squeeze(dim=0).tolist()
-    # 获取预测结果
-    predict_list = [c_list[i][time_step] for i in range(len(q_list_related))]
-    # 排序预测结果
-    recommend = heapq.nsmallest(num, zip(predict_list, q_list_related))
-    # 四舍五入预测结果，把推荐问题的index转为问题id
-    c_list, q_list_recommend = [round(rec[0], 4) for rec in recommend], [idx2question[rec[1]] for rec in recommend]
-    return {
-        'data': {
-            'qList': q_list_recommend,
-            'cList': c_list,
-        }
-    }
-
-# 返回推荐习题和预测结果
-@kt_bp.route('/recommend', methods=['GET'])
-def recommend():
-    num = int(request.args.get('num'))  # 推荐数量
-    user_id = int(request.args.get('userId'))
-    with open('E:/AJava/flask-knowledgeTracing/gikt-model/er-gikt-Flask-Vue/Flask-BackEnd/app/view/test_history.json', 'r', encoding='utf-8') as f:
-        history_answers = json.load(f)
-        history_answers = history_answers['data']['exerciseRecordList']
-    print('历史记录\n')
-    print(history_answers)
-    q_list = [a['exerciseId'] for a in history_answers]  # 所有回答过的问题id
-    ic(q_list)
-    q_set_related = set()  # 所有相关问题的id集合
-    for q_id in q_list:
-        q_set_related.update(np.where(qq_table[convert2Index(q_id)] > 0)[0].tolist())
-    q_list_related = list(q_set_related)  # 所有相关问题的id数组
-    if num > len(q_list_related):  # 相关题目比需要推荐的少，允许[重复]选
-        q_list_related *= (num / len(q_list_related) + 1)
-    ones = torch.ones(size=[1, len(q_list_related), ], dtype=torch.int, device=DEVICE)
-    c_list = model(
-        question=torch.unsqueeze(torch.tensor(q_list_related, device=DEVICE), dim=0),  # 问题id列表
-        response=ones,  # 推荐时回答全设置为1
-        mask=ones  # 题目都是有效的，maks也全为1
-    ).squeeze(dim=0).tolist()
-    recommend = heapq.nsmallest(num, zip(c_list, q_list))
-    c_list, q_list_recommend = [round(rec[0], 4) for rec in recommend], [rec[1] for rec in recommend]
-    # 计算推荐习题中技能的分布情况
-    s_set = set()  # 所有相关技能id集合
-    for q_id in q_list_recommend:
-        s_set.update(np.where(qs_table[convert2Index(q_id)] > 0)[0].tolist())
-    s_list = list(s_set)  # 相关技能的id数组
-    ic(s_list)
-    s_names = [s.name for s in Skill.query.filter(Skill.id.in_(s_list)).all()]  # 技能名称数组
-    ic(s_names)
-    s_q_num = [0 for _ in range(len(s_list))]  # 每个技能涉及的问题数量
-    for q_id in q_list_recommend:
-        s_list1 = np.where(qs_table[convert2Index(q_id)] > 0)[0].tolist()
-        for s_id in s_list1:
-            s_q_num[s_list.index(s_id)] += 1
-    ic(s_q_num)
-    s_values = [num / sum(s_q_num) for num in s_q_num]  # 除以和，使其元素之和为1
-    return {
-        'data': {
-            'qList': q_list_recommend,
-            'cList': c_list,
-            'skillData': [{
-                'value': value,
-                'name': name
-            } for name, value in zip(s_names, s_values)]
-        }
-    }
+# # 测试推荐
+# @kt_bp.route('/recommend', methods=['GET'])
+# def recommend_test():
+#     num = 10  # 推荐数量
+#     with open('test_history.json') as f:
+#         json_data = json.load(f)
+#     history_answers = json_data['data']['exerciseRecordList'] # 获取历史答题记录
+#     q_list = [question2idx[a['exerciseId']] for a in history_answers] # 获取答题记录的index
+#     ic(q_list)
+#     # 获取相关的习题
+#     q_set_related = set()  # 所有相关问题的id集合
+#     for q_id in q_list:
+#         q_set_related.update(np.where(qq_table[q_id] > 0)[0].tolist())
+#     q_list_related = list(q_set_related)  # 所有相关问题的id数组
+#     if num > len(q_list_related):  # 相关题目比需要推荐的少，允许[重复]选
+#         q_list_related *= (num / len(q_list_related) + 1)
+#     a_list = [1 if a['score'] > 0 else 0 for a in history_answers] # 获取答题answer记录
+#     max_length = 200 # 需要改为传值？
+#     question_tensor_list = []
+#     answer_tensor_list = []
+#     mask_tensor_list = []
+#     time_step = len(q_list)
+#     for q_related in q_list_related:
+#         combined_q_list = q_list + [q_related] # 原始的答题记录加上最后一道用于预测的题目
+#         combined_a_list = a_list + [0]
+#         combined_m_list = [1 for i in range(len(combined_q_list))]
+#         if len(combined_q_list) < max_length:  # 如果序列长度小于最大长度
+#             combined_q_list += [0] * (max_length - len(combined_q_list))
+#             combined_a_list += [0] * (max_length - len(combined_a_list))
+#             combined_m_list += [0] * (max_length - len(combined_m_list))
+#         elif len(combined_q_list) > max_length:
+#             combined_q_list = combined_q_list[-max_length:]
+#             combined_a_list = combined_a_list[-max_length:]
+#             combined_m_list = combined_m_list[-max_length:]
+#         question_tensor_list.append(combined_q_list)
+#         answer_tensor_list.append(combined_a_list)
+#         mask_tensor_list.append(combined_m_list)
+#     question_tensor = torch.tensor(question_tensor_list, dtype=torch.int64)
+#     answer_tensor = torch.tensor(answer_tensor_list, dtype=torch.int64)
+#     mask_tensor = torch.tensor(mask_tensor_list, dtype=torch.int64)
+#     # 模型预测
+#     c_list = model(
+#         question=question_tensor,
+#         response=answer_tensor,
+#         mask=mask_tensor
+#     ).squeeze(dim=0).tolist()
+#     # 获取预测结果
+#     predict_list = [c_list[i][time_step] for i in range(len(q_list_related))]
+#     # 排序预测结果
+#     recommend = heapq.nsmallest(num, zip(predict_list, q_list_related))
+#     # 四舍五入预测结果，把推荐问题的index转为问题id
+#     c_list, q_list_recommend = [round(rec[0], 4) for rec in recommend], [idx2question[rec[1]] for rec in recommend]
+#     return {
+#         'data': {
+#             'qList': q_list_recommend,
+#             'cList': c_list,
+#         }
+#     }
+#
+# # 返回推荐习题和预测结果
+# @kt_bp.route('/recommend', methods=['GET'])
+# def recommend():
+#     num = int(request.args.get('num'))  # 推荐数量
+#     user_id = int(request.args.get('userId'))
+#     with open('E:/AJava/flask-knowledgeTracing/gikt-model/er-gikt-Flask-Vue/Flask-BackEnd/app/view/test_history.json', 'r', encoding='utf-8') as f:
+#         history_answers = json.load(f)
+#         history_answers = history_answers['data']['exerciseRecordList']
+#     print('历史记录\n')
+#     print(history_answers)
+#     q_list = [a['exerciseId'] for a in history_answers]  # 所有回答过的问题id
+#     ic(q_list)
+#     q_set_related = set()  # 所有相关问题的id集合
+#     for q_id in q_list:
+#         q_set_related.update(np.where(qq_table[convert2Index(q_id)] > 0)[0].tolist())
+#     q_list_related = list(q_set_related)  # 所有相关问题的id数组
+#     if num > len(q_list_related):  # 相关题目比需要推荐的少，允许[重复]选
+#         q_list_related *= (num / len(q_list_related) + 1)
+#     ones = torch.ones(size=[1, len(q_list_related), ], dtype=torch.int, device=DEVICE)
+#     c_list = model(
+#         question=torch.unsqueeze(torch.tensor(q_list_related, device=DEVICE), dim=0),  # 问题id列表
+#         response=ones,  # 推荐时回答全设置为1
+#         mask=ones  # 题目都是有效的，maks也全为1
+#     ).squeeze(dim=0).tolist()
+#     recommend = heapq.nsmallest(num, zip(c_list, q_list))
+#     c_list, q_list_recommend = [round(rec[0], 4) for rec in recommend], [rec[1] for rec in recommend]
+#     # 计算推荐习题中技能的分布情况
+#     s_set = set()  # 所有相关技能id集合
+#     for q_id in q_list_recommend:
+#         s_set.update(np.where(qs_table[convert2Index(q_id)] > 0)[0].tolist())
+#     s_list = list(s_set)  # 相关技能的id数组
+#     ic(s_list)
+#     s_names = [s.name for s in Skill.query.filter(Skill.id.in_(s_list)).all()]  # 技能名称数组
+#     ic(s_names)
+#     s_q_num = [0 for _ in range(len(s_list))]  # 每个技能涉及的问题数量
+#     for q_id in q_list_recommend:
+#         s_list1 = np.where(qs_table[convert2Index(q_id)] > 0)[0].tolist()
+#         for s_id in s_list1:
+#             s_q_num[s_list.index(s_id)] += 1
+#     ic(s_q_num)
+#     s_values = [num / sum(s_q_num) for num in s_q_num]  # 除以和，使其元素之和为1
+#     return {
+#         'data': {
+#             'qList': q_list_recommend,
+#             'cList': c_list,
+#             'skillData': [{
+#                 'value': value,
+#                 'name': name
+#             } for name, value in zip(s_names, s_values)]
+#         }
+#     }
 
 
 @kt_bp.route('/skillGraph', methods=['GET'])
@@ -355,4 +365,67 @@ def skill_graph():
             'data': s_data,
             'links': s_links
         }
+    }
+
+
+@kt_bp.route('/update_knowledge',methods=['POST'])
+def status_update():
+    # user_id
+    data = request.get_json()
+    user_id = data['user_id']
+    print(user_id)
+    history = fetch_exercise_records(user_id)
+    print(history)
+    history_answers = fetch_exercise_records(
+        user_id)['exerciseRecordList']  # 获取历史答题记录
+    q_list = [question2idx[a['exerciseId']]
+              for a in history_answers]  # 获取答题记录的index
+    a_list = [1 if a['score'] >
+                   0 else 0 for a in history_answers]  # 获取答题answer记录
+    max_length = 200
+    question_tensor_list = []
+    answer_tensor_list = []
+    mask_tensor_list = []
+    loop_list = [1]
+
+    for q_related in loop_list:
+        print(q_related)
+        combined_q_list = q_list
+        combined_a_list = a_list
+        combined_m_list = [1 for i in range(len(combined_q_list))]
+        if len(combined_q_list) < max_length:  # 如果序列长度小于最大长度
+            combined_q_list += [0] * (max_length - len(combined_q_list))
+            combined_a_list += [0] * (max_length - len(combined_a_list))
+            combined_m_list += [0] * (max_length - len(combined_m_list))
+        elif len(combined_q_list) > max_length:
+            combined_q_list = combined_q_list[-max_length:]
+            combined_a_list = combined_a_list[-max_length:]
+            combined_m_list = combined_m_list[-max_length:]
+        question_tensor_list.append(combined_q_list)
+        answer_tensor_list.append(combined_a_list)
+        mask_tensor_list.append(combined_m_list)
+
+    question_tensor = torch.tensor(question_tensor_list, dtype=torch.int64)
+    answer_tensor = torch.tensor(answer_tensor_list, dtype=torch.int64)
+    mask_tensor = torch.tensor(mask_tensor_list, dtype=torch.int64)
+
+    # 模型预测
+    c_list,state = model(
+        question=question_tensor,
+        response=answer_tensor,
+        mask=mask_tensor,
+        DEVICE="cpu"
+    )
+    print(c_list)
+    user_state = {}
+    state = state.detach().numpy()
+    print(state.shape)
+    user_state[user_id]=state[0]
+
+    stu_state_upload(user_state)
+    print("更新成功！")
+
+    return {
+        'code': 1,
+        'msg': "knowledge state update success.",
     }

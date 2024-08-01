@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="er_gikt@localhost" uuid="23017c2a-20b1-4874-aac6-13ddd15657f6">
+    <data-source source="LOCAL" name="@mysql.mysql" uuid="23017c2a-20b1-4874-aac6-13ddd15657f6">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/er_gikt</jdbc-url>
+      <jdbc-url>jdbc:mysql://mysql.mysql/</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

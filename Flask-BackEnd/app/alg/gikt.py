@@ -57,6 +57,7 @@ class GIKT(Module):
         h2_pre = torch.nn.init.xavier_uniform_(torch.zeros(self.emb_dim, device=DEVICE).repeat(batch_size, 1))
         state_history = torch.zeros(batch_size, seq_len, self.emb_dim, device=DEVICE)
         y_hat = torch.zeros(batch_size, seq_len, device=DEVICE)
+        state = torch.zeros(batch_size, self.emb_dim, device=DEVICE)
         for t in range(seq_len - 1): # 第t时刻
             question_t = question[:, t]
             response_t = response[:, t]
@@ -151,7 +152,8 @@ class GIKT(Module):
             y_hat[:, t + 1] = self.predict(qs_concat, current_history_state)
             h2_pre = lstm_output
             state_history[:, t] = lstm_output
-        return y_hat
+            state = lstm_output
+        return y_hat, state
 
     def aggregate(self, emb_node_neighbor):
         # 图扩散模型

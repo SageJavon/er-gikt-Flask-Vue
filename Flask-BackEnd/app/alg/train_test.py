@@ -24,7 +24,7 @@ output_file = open(output_path, 'w')
 params = {
     'max_seq_len': max_seq_len,
     'min_seq_len': min_seq_len,
-    'epochs': 100,  # 每折训练的轮数
+    'epochs': 5,  # 每折训练的轮数
     'lr': 0.01,
     'lr_gamma': 0.95,
     'batch_size': 32,
@@ -54,7 +54,8 @@ q_neighbors, s_neighbors = gen_gikt_graph(
     q_neighbors_list, s_neighbors_list, params['size_q_neighbors'], params['size_s_neighbors'])
 q_neighbors = torch.tensor(q_neighbors, dtype=torch.int64, device=DEVICE)
 s_neighbors = torch.tensor(s_neighbors, dtype=torch.int64, device=DEVICE)
-
+user_state = {}
+idx2q = np.load('data/idx2question.npy', allow_pickle=True).item()
 
 # 初始化模型
 model = GIKT(
@@ -111,8 +112,14 @@ for epoch in range(params['epochs']):
             optimizer.zero_grad()
             x, y_target, mask = data[:, :, 0].to(DEVICE), data[:, :, 1].to(
                 DEVICE), data[:, :, 2].to(torch.bool).to(DEVICE)
+            userid = data[:, :, 3]
             # 从data取出来时，mask的类型是int而不是bool
-            y_hat = model(x, y_target, mask,DEVICE)
+            y_hat,knowledge_state = model(x, y_target, mask,DEVICE)
+            userid = userid.detach().numpy()
+            knowledge_state = knowledge_state.detach().numpy()
+            for index, row in enumerate(userid):
+                # print(row[0])
+                user_state[row[0]] = knowledge_state[index]
             y_hat = torch.masked_select(y_hat, mask)
             y_pred = torch.ge(y_hat, torch.tensor(0.5))
             y_target = torch.masked_select(y_target, mask)
@@ -142,7 +149,7 @@ for epoch in range(params['epochs']):
         for data in test_loader:
             x, y_target, mask = data[:, :, 0].to(DEVICE), data[:, :, 1].to(
                 DEVICE), data[:, :, 2].to(torch.bool).to(DEVICE)
-            y_hat = model(x, y_target, mask,DEVICE)
+            y_hat,knowledge_state_test = model(x, y_target, mask,DEVICE)
             y_hat = torch.masked_select(y_hat, mask.to(torch.bool))
             y_pred = torch.ge(y_hat, torch.tensor(0.5))
             y_target = torch.masked_select(y_target, mask.to(torch.bool))

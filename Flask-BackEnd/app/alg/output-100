@@ -1,2 +1,1 @@
-{'max_seq_len': 200, 'min_seq_len': 20, 'epochs': 100, 'lr': 0.01, 'lr_gamma': 0.95, 'batch_size': 32, 'size_q_neighbors': 4, 'size_s_neighbors': 10, 'num_workers': 16, 'prefetch_factor': 4, 'agg_hops': 3, 'emb_dim': 100, 'hard_recap': True, 'dropout': (0.2, 0.4), 'rank_k': 10, 'k_fold': 5}
-epoch 1 | training: loss: 0.6588, acc: 0.5546, auc:  0.5289 | testing: loss: 0.6657, acc: 0.5638, auc:  0.5329 | time: 55.72s, average batch time: 13.93s
+{'max_seq_len': 200, 'min_seq_len': 20, 'epochs': 5, 'lr': 0.01, 'lr_gamma': 0.95, 'batch_size': 32, 'size_q_neighbors': 4, 'size_s_neighbors': 10, 'num_workers': 16, 'prefetch_factor': 4, 'agg_hops': 3, 'emb_dim': 100, 'hard_recap': True, 'dropout': (0.2, 0.4), 'rank_k': 10, 'k_fold': 5}
