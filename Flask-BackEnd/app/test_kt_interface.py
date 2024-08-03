@@ -110,6 +110,69 @@ def fetch_exercise_records(student_id):
             print('MySQL connection closed')
 
 
+# 计算知识状态的相似度，获取相似度高的前10个学生
+def cal_stu_knowledge_state_similarity(student_id):
+    try:
+        # 连接到 MySQL 数据库
+        conn = mysql.connector.connect(
+            host="mysql.mysql",
+            user="root",
+            password=os.getenv('MYSQL_PASSWORD'),
+            database="sage_javon",
+            port=3306
+        )
+
+        if conn.is_connected():
+            print('Connected to MySQL database')
+
+        # 创建游标对象，用于执行查询
+        cursor = conn.cursor(dictionary=True)
+
+        # 获取指定学生的知识状态
+        query = "SELECT knowledge_state FROM student WHERE id = %s"
+        cursor.execute(query, (student_id,))
+        student_knowledge_state_row = cursor.fetchone()
+
+        if not student_knowledge_state_row:
+            raise ValueError(f"No student found with ID {student_id}")
+
+        student_knowledge_state = np.array(student_knowledge_state_row['knowledge_state'])
+
+        # 获取其他所有学生的知识状态
+        query = "SELECT id, knowledge_state FROM student WHERE id != %s"
+        cursor.execute(query, (student_id,))
+        other_students = cursor.fetchall()
+
+        similarity_dict = {}
+
+        for other_student in other_students:
+            other_student_id = other_student['id']
+            other_student_knowledge_state = np.array(other_student['knowledge_state'])
+
+            # 计算二者的余弦相似度
+            similarity = cosine_similarity(
+                [student_knowledge_state],
+                [other_student_knowledge_state]
+            )[0][0]
+            similarity_dict[other_student_id] = similarity
+            # 将学生 ID 和相似度保存到字典 similarity_dict 中
+
+        # 获取相似度最高的前10个学生
+        similarity_list.sort(key=lambda x: x[1], reverse=True)
+        top_similar_students = similarity_list[:10]
+        return dict(top_similar_students)
+
+    except mysql.connector.Error as e:
+        print("Error connecting to MySQL database:", e)
+
+    finally:
+        # 关闭游标和数据库连接
+        if 'cursor' in locals() and cursor:
+            cursor.close()
+        if 'conn' in locals() and conn.is_connected():
+            conn.close()
+            print('MySQL connection closed')
+
 
 def stu_state_upload(user_state):
     conn=None
