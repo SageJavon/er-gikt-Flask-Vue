@@ -1,9 +1,12 @@
 import mysql.connector
 import json
+import numpy as np
 import pymysql
 from decimal import Decimal
 from datetime import datetime
 import os
+import torch
+import torch.nn.functional as F
 
 def convert_to_dict(cursor, row):
     """Convert MySQL row to dictionary with handling for Decimal type."""
@@ -110,6 +113,14 @@ def fetch_exercise_records(student_id):
             print('MySQL connection closed')
 
 
+def state2tensor(state_str):
+    state_list = list(map(float, state_str.replace("\n", "").strip('[]').split()))
+    # 将列表转换为 NumPy 数组
+    state_array = np.array(state_list)
+    # 将 NumPy 数组转换为 PyTorch 张量
+    state_tensor = torch.tensor(state_array)
+    return state_tensor
+
 # 计算知识状态的相似度，获取相似度高的前10个学生
 def cal_stu_knowledge_state_similarity(student_id):
     try:
@@ -117,7 +128,7 @@ def cal_stu_knowledge_state_similarity(student_id):
         conn = mysql.connector.connect(
             host="mysql.mysql",
             user="root",
-            password=os.getenv('MYSQL_PASSWORD'),
+            password="pYRGObpCdG",
             database="sage_javon",
             port=3306
         )
@@ -135,33 +146,36 @@ def cal_stu_knowledge_state_similarity(student_id):
 
         if not student_knowledge_state_row:
             raise ValueError(f"No student found with ID {student_id}")
+        
+        student_knowledge_state = student_knowledge_state_row['knowledge_state']
 
-        student_knowledge_state = np.array(student_knowledge_state_row['knowledge_state'])
-
-        # 获取其他所有学生的知识状态
+            # 获取其他所有学生的知识状态
         query = "SELECT id, knowledge_state FROM student WHERE id != %s"
         cursor.execute(query, (student_id,))
         other_students = cursor.fetchall()
 
         similarity_dict = {}
 
+        threshold = 0.90 # 设置相似度阈值
+
         for other_student in other_students:
             other_student_id = other_student['id']
-            other_student_knowledge_state = np.array(other_student['knowledge_state'])
+            other_student_knowledge_state = other_student['knowledge_state']
 
-            # 计算二者的余弦相似度
-            similarity = cosine_similarity(
-                [student_knowledge_state],
-                [other_student_knowledge_state]
-            )[0][0]
-            similarity_dict[other_student_id] = similarity
+            if other_student_knowledge_state != None:
+                # 计算二者的余弦相似度
+                similarity = F.cosine_similarity(
+                    state2tensor(student_knowledge_state),
+                    state2tensor(other_student_knowledge_state),
+                    dim=0
+                )
+                if similarity > threshold:
+                    similarity_dict[other_student_id] = similarity
             # 将学生 ID 和相似度保存到字典 similarity_dict 中
 
-        # 获取相似度最高的前10个学生
-        similarity_list.sort(key=lambda x: x[1], reverse=True)
-        top_similar_students = similarity_list[:10]
-        return dict(top_similar_students)
-
+        # 相似度降序排序，返回
+        sorted_similar_students = sorted(similarity_dict.items(), key=lambda x: x[1], reverse=True)
+        return sorted_similar_students
     except mysql.connector.Error as e:
         print("Error connecting to MySQL database:", e)
 
