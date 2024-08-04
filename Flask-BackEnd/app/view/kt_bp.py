@@ -23,7 +23,7 @@ from ..alg.gikt import GIKT
 from ..alg.utils import gen_gikt_graph, build_adj_list
 # from gikt import GIKT
 # from util import gen_gikt_graph, build_adj_list
-from ..test_kt_interface import fetch_exercise_records,stu_state_upload
+from ..test_kt_interface import fetch_exercise_records,stu_state_upload, cal_stu_knowledge_state_similarity
 kt_bp = Blueprint('kt', __name__, url_prefix='/kt')
 # 获取当前脚本的绝对路径
 script_dir = os.path.dirname(__file__)

@@ -50,7 +50,7 @@ class GIKT(Module):
         # 公式10中的W
         self.MLP_W = Linear(2 * emb_dim, 1)# 公式中的W, 输入维度: 2 * emb_dim, 输出维度: 1
 
-    def forward(self, question, response, mask, DEVICE):
+    def forward(self, question, response, mask, DEVICE, additional_state=None, time_step=None):
         # question: [batch_size, seq_len]
         # response: [batch_size, seq_len]
         # mask: [batch_size, seq_len] 和question一样的形状, 表示在question中哪些索引是真正的数据(1), 哪些是补零的数据(0)
@@ -139,7 +139,7 @@ class GIKT(Module):
                 history_time = self.recap_hard(q_next, question[:, 0:t]) # 选取哪些时刻的问题
                 selected_states = [] # 不同时刻t选择的历史状态
                 max_num_states = 1 # 求最大的历史状态数量
-                for row, selected_time in enumerate(history_time):
+                for row, selected_time in enumerate(history_time): #遍历每个用户，和它的与当前时刻相关问题的t
                     current_state = torch.unsqueeze(lstm_output[row], dim=0) # [1, emb_dim]
                     if len(selected_time) == 0: # 没有历史状态,直接取当前状态
                         selected_states.append(current_state)
@@ -165,11 +165,16 @@ class GIKT(Module):
                     select_history = torch.cat(tuple(state_history[i][indices[i]].unsqueeze(dim=0)
                                                      for i in range(batch_size)), dim=0) # [batch_size, rank_k, emb_dim]
                     current_history_state = torch.cat((current_state, select_history), dim=1)  # [batch_size, rank_k + 1, emb_dim]
+            
+
             y_hat[:, t + 1] = self.predict(qs_concat, current_history_state) # 调用predict函数,根据当前和历史状态进行预测，并将结果存储在y_hat中
             h2_pre = lstm_output
 
-            state_history[:, t] = lstm_output
-            state = lstm_output
+            if t==time_step and additional_state != None:
+                state_history[:, t] = additional_state # [batch_size,emb_dim]
+            else:
+                state_history[:, t] = lstm_output
+            state = lstm_output # state 存储的内容应该还有一些问题；state目前返回的是seq_len长度时候的知识状态，我们想要的是time_step时刻的知识状态
         return y_hat, state
 
             # state_history[:, t] = lstm_output  # [batch_size, emb_dim]
