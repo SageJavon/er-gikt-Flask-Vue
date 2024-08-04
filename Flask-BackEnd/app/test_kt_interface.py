@@ -188,6 +188,46 @@ def cal_stu_knowledge_state_similarity(student_id):
             print('MySQL connection closed')
 
 
+# 获取指定学生的knowledge_state
+def get_knowledge_state_by_id(student_id):
+    try:
+        # 连接到 MySQL 数据库
+        conn = mysql.connector.connect(
+            host="mysql.mysql",
+            user="root",
+            password="pYRGObpCdG",
+            database="sage_javon",
+            port=3306
+        )
+
+        if conn.is_connected():
+            print('Connected to MySQL database')
+
+        # 创建游标对象，用于执行查询
+        cursor = conn.cursor(dictionary=True)
+
+        # 获取指定学生的知识状态
+        query = "SELECT knowledge_state FROM student WHERE id = %s"
+        cursor.execute(query, (student_id,))
+        student_knowledge_state_row = cursor.fetchone()
+
+        if not student_knowledge_state_row:
+            raise ValueError(f"No student found with ID {student_id}")
+        
+        student_knowledge_state = student_knowledge_state_row['knowledge_state']
+        return student_knowledge_state
+
+    except mysql.connector.Error as e:
+        print("Error connecting to MySQL database:", e)
+
+    finally:
+        # 关闭游标和数据库连接
+        if 'cursor' in locals() and cursor:
+            cursor.close()
+        if 'conn' in locals() and conn.is_connected():
+            conn.close()
+            print('MySQL connection closed')
+
 def stu_state_upload(user_state):
     conn=None
     cursor=None
